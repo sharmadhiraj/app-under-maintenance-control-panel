@@ -3,8 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>App Under Maintenance Control Panel</title>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet"/>
+
 </head>
 <body>
 
+<main role="main" class="container">
+    <div class="row mt-4">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <label>Set Under Maintenance Status</label>
+                        </div>
+                        <div class="col">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="is_under_maintenance" disabled
+                                       onclick="updateUnderMaintenanceStatus(this)">
+                                <label class="custom-control-label" for="is_under_maintenance"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label for="under_maintenance_message">Under Maintenance Message:</label>
+                        <textarea class="form-control" id="under_maintenance_message" rows="4"></textarea>
+                    </div>
+                    <button type="button" id="btn_update" disabled class="btn btn-primary btn-block"
+                            onclick="updateUnderMaintenanceMessage()">Update
+                        Message
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
 </body>
+<script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+<script src="config.js"></script>
+<script src="main.js"></script>
 </html>
