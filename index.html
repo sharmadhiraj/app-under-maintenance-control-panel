@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>App Under Maintenance Control Panel</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+    <link href="favicon.ico" rel="icon" type="image/x-icon"/>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet"/>
 
 </head>
 <body>
 
-<main role="main" class="container">
+<main class="container" role="main">
     <div class="row mt-4">
         <div class="col-lg-6 offset-lg-3">
             <div class="card">
@@ -22,8 +22,8 @@
                         </div>
                         <div class="col">
                             <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="is_under_maintenance" disabled
-                                       onclick="updateUnderMaintenanceStatus(this)">
+                                <input class="custom-control-input" disabled id="is_under_maintenance" onclick="updateUnderMaintenanceStatus(this)"
+                                       type="checkbox">
                                 <label class="custom-control-label" for="is_under_maintenance"></label>
                             </div>
                         </div>
@@ -33,8 +33,8 @@
                         <label for="under_maintenance_message">Under Maintenance Message:</label>
                         <textarea class="form-control" id="under_maintenance_message" rows="4"></textarea>
                     </div>
-                    <button type="button" id="btn_update" disabled class="btn btn-primary btn-block"
-                            onclick="updateUnderMaintenanceMessage()">Update
+                    <button class="btn btn-primary btn-block" disabled id="btn_update" onclick="updateUnderMaintenanceMessage()"
+                            type="button">Update
                         Message
                     </button>
                 </div>
