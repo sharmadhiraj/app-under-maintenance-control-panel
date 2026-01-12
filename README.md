@@ -1,8 +1,8 @@
 # App Under Maintenance Control Panel
 
-Implement under maintenance feature on Android app & build a Control panel to manage it.  
+Implement under maintenance feature on the Android app and build a Control panel to manage it.
 
-Refer the following article for an implementation guide:
+Refer to the following article for an implementation guide:
 
-[Build an app under maintenance feature with the control panel using the Firebase real-time database.
+[Build an app under the maintenance feature with the control panel using the Firebase real-time database.
 ](https://medium.com/@sharmadhiraj.np/build-an-app-under-maintenance-feature-with-the-control-panel-using-the-firebase-real-time-f0815ef38c20)

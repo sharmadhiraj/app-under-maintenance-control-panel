@@ -1,10 +1,12 @@
+// config-example.js
+
 const projectID = "your_project_id";
-const apiKey = "your_api_key";
+const apiKey = "your_web_api_key";
 
 /*
-For projectID & apiKey
-    1. Open Firebase Project for building.
-    2. Navigate to project settings. (Tap Settings icon near Project Overview)
-    3. Find project ID & Web API Key on General tab.
-Then rename the file to config.js config-example.js=>config.js
+1. Open Firebase Console → Project Settings
+2. Project ID → under “Your project”
+3. Web API Key → under “Your apps” (create a Web app if needed)
+4. Replace the above placeholders
+5. Rename file: config-example.js → config.js
 */

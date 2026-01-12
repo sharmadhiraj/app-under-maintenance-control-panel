@@ -1,39 +1,48 @@
 function connectFirebase() {
-    console.log("Connect to firebase");
+    console.log("Connecting to Firebase...");
     firebase.initializeApp(getConfig());
-    firebase.database().ref('/')
-        .once('value')
-        .then(function (snapshot) {
-            fillUnderMaintenanceData(snapshot.val());
-        });
+
+    firebase.database().ref('/').on('value', snapshot => {
+        fillUnderMaintenanceData(snapshot.val());
+    });
 }
 
 function getConfig() {
     return {
         apiKey: apiKey,
-        authDomain: projectID + ".firebaseapp.com",
-        databaseURL: "https://" + projectID + ".firebaseio.com",
-        storageBucket: projectID + ".appspot.com"
-    }
+        authDomain: `${projectID}.firebaseapp.com`,
+        databaseURL: `https://${projectID}.firebaseio.com`,
+        projectId: projectID
+    };
 }
 
 function fillUnderMaintenanceData(data) {
-    console.log(data);
-    document.getElementById("is_under_maintenance").checked = data["is_under_maintenance"];
-    document.getElementById("is_under_maintenance").disabled = false;
-    document.getElementById("under_maintenance_message").value = data["under_maintenance_message"];
-    document.getElementById("btn_update").disabled = false;
+    console.log("Fetched data:", data);
+
+    const statusCheckbox = document.getElementById("is_under_maintenance");
+    const messageTextarea = document.getElementById("under_maintenance_message");
+    const updateButton = document.getElementById("btn_update");
+
+    statusCheckbox.checked = data?.is_under_maintenance || false;
+    statusCheckbox.disabled = false;
+
+    messageTextarea.value = data?.under_maintenance_message || "";
+    updateButton.disabled = false;
 }
 
 function updateUnderMaintenanceStatus(checkBox) {
     firebase.database().ref('/is_under_maintenance')
-        .set(checkBox.checked);
+        .set(checkBox.checked)
+        .then(() => console.log("Maintenance status updated"))
+        .catch(err => console.error("Error updating status:", err));
 }
 
 function updateUnderMaintenanceMessage() {
     const message = document.getElementById("under_maintenance_message").value;
     firebase.database().ref('/under_maintenance_message')
-        .set(message);
+        .set(message)
+        .then(() => console.log("Maintenance message updated"))
+        .catch(err => console.error("Error updating message:", err));
 }
 
 connectFirebase();
